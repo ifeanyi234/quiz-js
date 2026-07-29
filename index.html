@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS Projects | Quiz App</title>
+  </head>
+  <body class="flex poppins-regular">
+    <header>
+      <div class="brand poppins-bold">JS Quiz</div>
+    </header>
+
+    <div class="container flex">
+      <!-- Start Screen -->
+      <div class="screen flex" id="startScreen">
+        <div class="start-icon">🧠</div>
+        <h1 class="poppins-bold">JavaScript Quiz</h1>
+        <p class="subtitle">10 questions · Multiple choice</p>
+        <button id="startBtn" class="btn-primary">Start Quiz</button>
+      </div>
+
+      <!-- Question Screen -->
+      <div class="screen flex hidden" id="questionScreen">
+        <div class="meta flex">
+          <span id="questionNum" class="q-num">Question 1 of 10</span>
+          <span id="scoreDisplay" class="score">Score: 0</span>
+        </div>
+        <h2 id="questionText" class="q-text">Question goes here</h2>
+        <div id="optionsContainer" class="options flex"></div>
+      </div>
+
+      <!-- Results Screen -->
+      <div class="screen flex hidden" id="resultsScreen">
+        <div class="score-circle flex">
+          <span id="finalScore" class="score-num">7</span>
+          <span class="score-den"
+            >out of <span id="totalQuestions">10</span></span
+          >
+        </div>
+        <h2 id="resultLabel" class="poppins-bold result-label">Great job!</h2>
+        <p id="resultMsg" class="result-msg">
+          You answered 7 questions correctly.
+        </p>
+        <button id="restartBtn" class="btn-primary">Restart Quiz</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
