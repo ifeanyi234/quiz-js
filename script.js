@@ -139,7 +139,7 @@ const questionsArr = [
 subtitle.textContent = `${questionsArr.length} questions · Multiple choice`;
 
 const dynamicHtml = function () {
-  questionText.textContent = `${currentQuestion + 1}. ${questionsArr[currentQuestion].question}`;
+  questionText.innerHTML = `${currentQuestion + 1}. ${questionsArr[currentQuestion].question}`;
 };
 
 startBtn.addEventListener("click", function () {
