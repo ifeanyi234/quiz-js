@@ -6,10 +6,9 @@ const subtitle = document.querySelector(".subtitle");
 const questionNum = document.querySelector("#questionNum");
 const startBtn = document.querySelector("#startBtn");
 
-startBtn.addEventListener("click", function () {
-  startScreen.classList.add("hidden");
-  questionScreen.classList.remove("hidden");
-});
+const questionText = document.querySelector("#questionText");
+
+let currentQuestion = 0;
 
 const questionsArr = [
   {
@@ -138,3 +137,13 @@ const questionsArr = [
 ];
 
 subtitle.textContent = `${questionsArr.length} questions · Multiple choice`;
+
+const dynamicHtml = function () {
+  questionText.textContent = `${currentQuestion + 1}. ${questionsArr[currentQuestion].question}`;
+};
+
+startBtn.addEventListener("click", function () {
+  startScreen.classList.add("hidden");
+  questionScreen.classList.remove("hidden");
+  dynamicHtml();
+});
