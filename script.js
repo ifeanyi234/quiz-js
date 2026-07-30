@@ -7,6 +7,7 @@ const questionNum = document.querySelector("#questionNum");
 const startBtn = document.querySelector("#startBtn");
 
 const questionText = document.querySelector("#questionText");
+const optionsContainer = document.querySelector("#optionsContainer");
 
 let currentQuestion = 0;
 
@@ -140,6 +141,7 @@ subtitle.textContent = `${questionsArr.length} questions · Multiple choice`;
 
 const dynamicHtml = function () {
   questionText.innerHTML = `${currentQuestion + 1}. ${questionsArr[currentQuestion].question}`;
+  optionsContainer.innerHTML = `<button class="option-btn" data-option="${Object.keys(questionsArr[currentQuestion].options)}">${questionsArr[currentQuestion].options.a}</button><button class="option-btn" data-option="${Object.keys(questionsArr[currentQuestion].options)}">${questionsArr[currentQuestion].options.b}</button><button class="option-btn" data-option="${Object.keys(questionsArr[currentQuestion].options)}">${questionsArr[currentQuestion].options.c}</button><button class="option-btn" data-option="${Object.keys(questionsArr[currentQuestion].options)}">${questionsArr[currentQuestion].options.d}</button>`;
 };
 
 startBtn.addEventListener("click", function () {
