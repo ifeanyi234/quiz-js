@@ -2,7 +2,8 @@
 const startScreen = document.querySelector("#startScreen");
 const questionScreen = document.querySelector("#questionScreen");
 const resultsScreen = document.querySelector("#resultsScreen");
-
+const subtitle = document.querySelector(".subtitle");
+const questionNum = document.querySelector("#questionNum");
 const startBtn = document.querySelector("#startBtn");
 
 startBtn.addEventListener("click", function () {
@@ -135,4 +136,5 @@ const questionsArr = [
       "<code>JSON.stringify()</code> serializes JavaScript data structures into JSON strings for transmission or storage.",
   },
 ];
-console.log(questionsArr.length);
+
+subtitle.textContent = `${questionsArr.length} questions · Multiple choice`;
