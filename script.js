@@ -156,3 +156,11 @@ startBtn.addEventListener("click", function () {
   questionScreen.classList.remove("hidden");
   dynamicHtml();
 });
+
+optionsContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("option-btn")) {
+    console.log(e.target);
+    currentQuestion++;
+    dynamicHtml();
+  }
+});
