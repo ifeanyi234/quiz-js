@@ -160,7 +160,9 @@ startBtn.addEventListener("click", function () {
 optionsContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("option-btn")) {
     console.log(e.target);
-    currentQuestion++;
-    dynamicHtml();
+    if (currentQuestion < questionsArr.length - 1) {
+      currentQuestion++;
+      dynamicHtml();
+    }
   }
 });
