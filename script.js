@@ -162,7 +162,9 @@ optionsContainer.addEventListener("click", function (e) {
     console.log(e.target);
     if (currentQuestion < questionsArr.length - 1) {
       currentQuestion++;
-      dynamicHtml();
+      setTimeout(() => {
+        dynamicHtml();
+      }, 2000);
     }
   }
 });
