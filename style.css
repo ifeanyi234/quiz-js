@@ -143,9 +143,11 @@ header {
     background 0.2s,
     border-color 0.2s;
 }
-.option-btn:hover {
-  background: rgba(167, 139, 250, 0.15);
-  border-color: #a78bfa;
+@media (min-width: 1024px) {
+  .option-btn:hover {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: #a78bfa;
+  }
 }
 .option-btn.correct {
   background: rgba(52, 211, 153, 0.15);
