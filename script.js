@@ -163,11 +163,24 @@ optionsContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("option-btn")) {
     if (!isClicked) {
       isClicked = true;
+
+      // Correct Option
+      const [correctOption] = new Array(
+        ...document.querySelectorAll(".option-btn"),
+      ).filter((el) => {
+        if (el.dataset.option === questionsArr[currentQuestion].answer) {
+          return el;
+        }
+      });
+
+      console.log(correctOption);
+
       if (questionsArr[currentQuestion].answer === e.target.dataset.option) {
-        e.target.classList.add("correct");
+        correctOption.classList.add("correct");
         console.log("Correct 😊🎉");
       } else {
         e.target.classList.add("wrong");
+        correctOption.classList.add("correct");
         console.log("Wrong 😢💔");
       }
     } else {
