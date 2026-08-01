@@ -10,6 +10,11 @@ const questionText = document.querySelector("#questionText");
 const optionsContainer = document.querySelector("#optionsContainer");
 const scoreDisplay = document.querySelector("#scoreDisplay");
 
+const totalQuestions = document.querySelector("#totalQuestions");
+const finalScore = document.querySelector("#finalScore");
+const resultLabel = document.querySelector("#resultLabel");
+const resultMsg = document.querySelector("#resultMsg");
+
 let currentQuestion = 0;
 let score = 0;
 
@@ -141,7 +146,7 @@ const questionsArr = [
 
 subtitle.textContent = `${questionsArr.length} questions · Multiple choice`;
 
-const dynamicHtml = function () {
+const dynamicHtmlQuestions = function () {
   questionNum.innerHTML = `Question ${currentQuestion + 1} of ${questionsArr.length} `;
   questionText.innerHTML = `${questionsArr[currentQuestion].question}`;
   const optionHtml = Object.entries(questionsArr[currentQuestion].options)
@@ -152,11 +157,27 @@ const dynamicHtml = function () {
     .join("");
   optionsContainer.innerHTML = optionHtml;
 };
+const dynamicHtmlResult = function () {
+  const percentage = (score / questionsArr.length) * 100;
+  finalScore.innerHTML = score;
+  totalQuestions.innerHTML = questionsArr.length;
+  resultLabel.innerHTML =
+    percentage >= 90
+      ? "Absolute JS Wizard 🧙‍♂️"
+      : percentage >= 70
+        ? "Certified Nerd, We Love That 🤓"
+        : percentage >= 50
+          ? "Solid Effort, Google Was Almost Not Needed 👍"
+          : percentage >= 30
+            ? "console.log(you) Says Try Again 😅"
+            : "It's Okay, JS Confuses Everyone Sometimes 💜";
+  resultMsg.innerHTML = `You answered ${score} questions correctly.`;
+};
 
 startBtn.addEventListener("click", function () {
   startScreen.classList.add("hidden");
   questionScreen.classList.remove("hidden");
-  dynamicHtml();
+  dynamicHtmlQuestions();
 });
 
 let isClicked = false;
@@ -171,17 +192,13 @@ optionsContainer.addEventListener("click", function (e) {
         `[data-option="${questionsArr[currentQuestion].answer}"]`,
       );
 
-      console.log(correctOption);
-
       if (questionsArr[currentQuestion].answer === e.target.dataset.option) {
         correctOption.classList.add("correct");
         score++;
         scoreDisplay.innerHTML = `Score: ${score}`;
-        console.log("Correct 😊🎉");
       } else {
         e.target.classList.add("wrong");
         correctOption.classList.add("correct");
-        console.log("Wrong 😢💔");
       }
     } else {
       return;
@@ -191,9 +208,10 @@ optionsContainer.addEventListener("click", function (e) {
       currentQuestion++;
       setTimeout(() => {
         isClicked = false;
-        dynamicHtml();
+        dynamicHtmlQuestions();
       }, 2000);
     } else {
+      dynamicHtmlResult();
       setTimeout(() => {
         questionScreen.classList.add("hidden");
         resultsScreen.classList.remove("hidden");
