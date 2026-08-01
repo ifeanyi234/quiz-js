@@ -159,7 +159,13 @@ startBtn.addEventListener("click", function () {
 
 optionsContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("option-btn")) {
-    console.log(e.target);
+    if (questionsArr[currentQuestion].answer === e.target.dataset.option) {
+      e.target.classList.add("correct");
+      console.log("Correct 😊🎉");
+    } else {
+      e.target.classList.add("wrong");
+      console.log("Wrong 😢💔");
+    }
     if (currentQuestion < questionsArr.length - 1) {
       currentQuestion++;
       setTimeout(() => {
