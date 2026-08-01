@@ -193,6 +193,11 @@ optionsContainer.addEventListener("click", function (e) {
         isClicked = false;
         dynamicHtml();
       }, 2000);
+    } else {
+      setTimeout(() => {
+        questionScreen.classList.add("hidden");
+        resultsScreen.classList.remove("hidden");
+      }, 2000);
     }
   }
 });
