@@ -4,7 +4,9 @@ const questionScreen = document.querySelector("#questionScreen");
 const resultsScreen = document.querySelector("#resultsScreen");
 const subtitle = document.querySelector(".subtitle");
 const questionNum = document.querySelector("#questionNum");
+
 const startBtn = document.querySelector("#startBtn");
+const restartBtn = document.querySelector("#restartBtn");
 
 const questionText = document.querySelector("#questionText");
 const optionsContainer = document.querySelector("#optionsContainer");
@@ -218,4 +220,14 @@ optionsContainer.addEventListener("click", function (e) {
       }, 2000);
     }
   }
+});
+
+restartBtn.addEventListener("click", function () {
+  startScreen.classList.remove("hidden");
+  resultsScreen.classList.add("hidden");
+  currentQuestion = 0;
+  score = 0;
+  isClicked = false;
+
+  scoreDisplay.innerHTML = `Score: ${score}`;
 });
