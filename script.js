@@ -8,8 +8,10 @@ const startBtn = document.querySelector("#startBtn");
 
 const questionText = document.querySelector("#questionText");
 const optionsContainer = document.querySelector("#optionsContainer");
+const scoreDisplay = document.querySelector("#scoreDisplay");
 
 let currentQuestion = 0;
+let score = 0;
 
 const questionsArr = [
   {
@@ -173,6 +175,8 @@ optionsContainer.addEventListener("click", function (e) {
 
       if (questionsArr[currentQuestion].answer === e.target.dataset.option) {
         correctOption.classList.add("correct");
+        score++;
+        scoreDisplay.innerHTML = `Score: ${score}`;
         console.log("Correct 😊🎉");
       } else {
         e.target.classList.add("wrong");
