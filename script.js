@@ -157,18 +157,27 @@ startBtn.addEventListener("click", function () {
   dynamicHtml();
 });
 
+let isClicked = false;
+
 optionsContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("option-btn")) {
-    if (questionsArr[currentQuestion].answer === e.target.dataset.option) {
-      e.target.classList.add("correct");
-      console.log("Correct 😊🎉");
+    if (!isClicked) {
+      isClicked = true;
+      if (questionsArr[currentQuestion].answer === e.target.dataset.option) {
+        e.target.classList.add("correct");
+        console.log("Correct 😊🎉");
+      } else {
+        e.target.classList.add("wrong");
+        console.log("Wrong 😢💔");
+      }
     } else {
-      e.target.classList.add("wrong");
-      console.log("Wrong 😢💔");
+      return;
     }
+
     if (currentQuestion < questionsArr.length - 1) {
       currentQuestion++;
       setTimeout(() => {
+        isClicked = false;
         dynamicHtml();
       }, 2000);
     }
