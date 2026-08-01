@@ -187,6 +187,8 @@ optionsContainer.addEventListener("click", function (e) {
       currentQuestion++;
       setTimeout(() => {
         isClicked = false;
+        e.target.style.background = "rgba(255, 255, 255, 0.07)";
+        e.target.style.border = "0.5px solid rgba(255, 255, 255, 0.15)";
         dynamicHtml();
       }, 2000);
     }
