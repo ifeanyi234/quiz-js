@@ -165,13 +165,9 @@ optionsContainer.addEventListener("click", function (e) {
       isClicked = true;
 
       // Correct Option
-      const [correctOption] = new Array(
-        ...document.querySelectorAll(".option-btn"),
-      ).filter((el) => {
-        if (el.dataset.option === questionsArr[currentQuestion].answer) {
-          return el;
-        }
-      });
+      const correctOption = document.querySelector(
+        `[data-option="${questionsArr[currentQuestion].answer}"]`,
+      );
 
       console.log(correctOption);
 
